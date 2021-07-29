@@ -4,12 +4,12 @@ import {
   Switch,
   Route,
   Link,
-  useParams
-} from "react-router-dom";
+  useParams,
+} from 'react-router-dom';
 
-// const App = () => {
-//   return <h1>Hello Webpack React</h1>;
-// };
+import Create from './screens/user/Create';
+import Edit from './screens/user/Edit';
+import List from './screens/user/List';
 
 const App = () => {
   return (
@@ -18,31 +18,30 @@ const App = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">List</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/users/create">Create</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/user/1">Users</Link>
             </li>
           </ul>
         </nav>
 
         <Switch>
-          <Route path="/about">
-            <div>About</div>
+          <Route path="/users/create">
+            <Create />
           </Route>
-          <Route path="/user/:id">
-            <div>Users</div>
-          </Route>
+          <Route path="/user/:id" children={<Edit />} />
+
           <Route path="/">
-            <div>List user</div>
+            <List />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
+};
 
 export default App;
