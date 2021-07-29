@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'main.js',
+    publicPath: '/',
   },
   target: 'node',
   devServer: {
